@@ -4,6 +4,7 @@ import userRouter from './routes/user.route.js';
 import authRouter from './routes/auth.route.js';
 import connectToDatabase from './database/mongodb.js';
 import errorMiddleware from './middleware/error.middleware.js';
+import timerRouter from './routes/timer.route.js';
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
+app.use('api/timers', timerRouter);
 
 app.get('/', (req, res) => {
     res.send('Welcome to my Study Website!');
