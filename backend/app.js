@@ -5,12 +5,14 @@ import authRouter from './routes/auth.route.js';
 import connectToDatabase from './database/mongodb.js';
 import errorMiddleware from './middleware/error.middleware.js';
 import timerRouter from './routes/timer.route.js';
+import cors from 'cors';
 
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 // Routes
 app.use('/api/auth', authRouter);
